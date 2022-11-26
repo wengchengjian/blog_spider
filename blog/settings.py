@@ -7,12 +7,16 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'data'
+BOT_NAME = 'blog'
 
-SPIDER_MODULES = ['data.spiders']
-NEWSPIDER_MODULE = 'data.spiders'
+SPIDER_MODULES = ['blog.spiders']
+NEWSPIDER_MODULE = 'blog.spiders'
 
-
+MYSQL_HOST = "localhost"
+MYSQL_PORT = 3306
+MYSQL_DB = "gossip-blog"
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "wcj520600"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'data (+http://www.yourdomain.com)'
 
@@ -20,7 +24,7 @@ NEWSPIDER_MODULE = 'data.spiders'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 2
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -64,7 +68,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'data.pipelines.BlogPipeline': 300,
+   'blog.pipelines.BlogPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
